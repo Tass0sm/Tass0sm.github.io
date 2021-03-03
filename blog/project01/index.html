@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Project 1: Documentation Converter | Tassos&#39; Blog</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="">
+<meta name="generator" content="Hugo 0.81.0" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+
+
+
+  
+    <link href="/blog/index.xml" rel="alternate" type="application/rss+xml" title="Tassos&#39; Blog" />
+    <link href="/blog/index.xml" rel="feed" type="application/rss+xml" title="Tassos&#39; Blog" />
+  
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Project 1: Documentation Converter</h1>
+
+    <div class="tip">
+        <span>
+          Feb 14, 2021 16:39
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          
+            408 words
+          
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          2 minute read
+        </span>
+    </div>
+
+    <div class="content">
+      <p>For these early projects, I want to make some tools that contribute to
+developing future projects. I look up documentation pretty frequently whenever
+I&rsquo;m working, but the quality of that experience varies wildly. Here&rsquo;s my little
+ranking of those experiences:</p>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Best</td>
+<td>Self-Documenting Systems,</td>
+<td>Emacs-lisp, other lisps,</td>
+</tr>
+<tr>
+<td></td>
+<td>Texinfo,</td>
+<td>Most GNU tools,</td>
+</tr>
+<tr>
+<td></td>
+<td>Simple Manuals</td>
+<td>Man pages</td>
+</tr>
+<tr>
+<td>Good</td>
+<td>Books</td>
+<td></td>
+</tr>
+<tr>
+<td>Terrible</td>
+<td>Everything else</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>I really dislike strictly online documentation. All of the actual information is
+broken up by useless junk and it usually takes too long to navigate. However,
+the source itself is useful. It just comes in a variety of markup formats and
+from a variety of documentation generators. Python projects use ReStructuredText
+with <a 
+    href="https://www.sphinx-doc.org/en/master/"
+    
+    
+     
+      target="_blank" 
+      rel="noopener"
+    
+>
+    Sphinx
+</a>, GNU tools use <a 
+    href="https://www.gnu.org/software/texinfo/"
+    
+    
+     
+      target="_blank" 
+      rel="noopener"
+    
+>
+    Texinfo
+</a>, and there are dozens of others.</p>
+<p>Each of these tools can spit out documentation in many formats, but that usually
+doesn&rsquo;t cover everyone&rsquo;s format preference. <a 
+    href="https://pandoc.org/"
+    
+    
+     
+      target="_blank" 
+      rel="noopener"
+    
+>
+    Pandoc
+</a> handles almost every possible
+need for converting between markup languages, by reading documents from one
+language into an intermediate representation and then writing that content
+captured by the intermediate representation to new documents in a different
+language. This tool will use that design for converting between bodies of
+documentation.</p>
+<h2 id="design">Design <a href="#design" class="anchor">🔗</a></h2><p>The structure of documentation bodies can be thought of as a directed, labeled
+graph, where each node contains the markup content and some metadata. The labels
+describe the kind of connection.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<figure>
+    <img src="/ox-hugo/test.png"/> 
+</figure>
+
+<p>The process of translating from a body of documentation into this intermediate
+representation will be called analysis. For now, I will assume that a body of
+documentation is always contained in a directory.</p>
+<p>The process of transforming this intermediate representation for different
+markup formats and node linking constructs will be called conversion.</p>
+<p>The process of writing this intermediate representation back to a body of
+documentation in the real world will be called output.</p>
+<h2 id="goals">Goals <a href="#goals" class="anchor">🔗</a></h2><p>I feel like this will be a moderately difficult project, but I think the
+rewards (if properly made) will be great. To mark the finish line for this
+project, I&rsquo;ll shoot for just converting a small body of HTML documentation to
+a Texinfo page by March 14th. I&rsquo;ll have to work ahead a little in my classes
+to get this done, but I think its definitely possible.</p>
+<p>I may or may not make some other posts during development. Here&rsquo;s the
+repository for the project: <a href="https://github.com/Tass0sm/graphdoc">https://github.com/Tass0sm/graphdoc</a></p>
+<p>Originally, I was generating this website with <a 
+    href="https://dthompson.us/projects/haunt.html"
+    
+    
+     
+      target="_blank" 
+      rel="noopener"
+    
+>
+    Haunt
+</a> but now I&rsquo;m using
+Hugo. I&rsquo;m also writing it in <a 
+    href="https://orgmode.org/"
+    
+    
+     
+      target="_blank" 
+      rel="noopener"
+    
+>
+    Org Mode
+</a>.</p>
+
+    </div>
+
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <p class="copyright">
+    
+       © Copyright 
+       2021 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       
+    
+    </p>
+    <p class="powerby">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+  </body>
+</html>
