@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+	<title>&quot;Tassos&#39; Blog&quot;</title>
+	<description>blog for 12 projects in 12 months.</description>
+	<link>https://www.tass0sm.github.io</link>
+<item>
+	<title>Project 1: Documentation Converter</title>
+	<link>https://www.tass0sm.github.io/project1.html</link>
+	<guid>https://www.tass0sm.github.io/project1.html</guid>
+	<dc:date>2021-02-14T00:00:00Z</dc:date>
+	<author>tassos</author>
+	<description>The Documentation Converter Project</description>
+</item>
+</channel>
+</rss>

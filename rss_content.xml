@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+	<title>&quot;Tassos&#39; Blog&quot;</title>
+	<description>blog for 12 projects in 12 months.</description>
+	<link>https://www.tass0sm.github.io</link>
+<item>
+	<title>Project 1: Documentation Converter</title>
+	<link>https://www.tass0sm.github.io/project1.html</link>
+	<guid>https://www.tass0sm.github.io/project1.html</guid>
+	<dc:date>2021-02-14T00:00:00Z</dc:date>
+	<author>tassos</author>
+	<description><![CDATA[<h1>Project 1: Documentation Converter</h1>
+        <p><strong>Last modification on </strong> <time>2021-03-14</time></p>
+        <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orga76c68a">1. Design</a></li>
+<li><a href="#orgf1e0121">2. Goals</a></li>
+</ul>
+</div>
+</div>
+<p>
+For these early projects, I want to make some tools that contribute to
+developing future projects. I look up documentation pretty frequently whenever
+I'm working, but the quality of that experience varies wildly. Here's my little
+ranking of those experiences:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Rank</th>
+<th scope="col" class="org-left">Type</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Best</td>
+<td class="org-left">Self-Documenting Systems,</td>
+<td class="org-left">Emacs-lisp, other lisps,</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Texinfo,</td>
+<td class="org-left">Most GNU tools,</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Simple Manuals</td>
+<td class="org-left">Man pages</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Good</td>
+<td class="org-left">Books</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Terrible</td>
+<td class="org-left">Everything else</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+I really dislike strictly online documentation. All of the actual information is
+broken up by useless junk and it usually takes too long to navigate. However,
+the source itself is useful. It just comes in a variety of markup formats and
+from a variety of documentation generators. Python projects use ReStructuredText
+with <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a>, GNU tools use <a href="https://www.gnu.org/software/texinfo/">Texinfo</a>, and there are dozens of others.
+</p>
+
+<p>
+Each of these tools can spit out documentation in many formats, but that usually
+doesn't cover everyone's format preference. <a href="https://pandoc.org/">Pandoc</a> handles almost every possible
+need for converting between markup languages, by reading documents from one
+language into an intermediate representation and then writing that content
+captured by the intermediate representation to new documents in a different
+language. This tool will use that design for converting between bodies of
+documentation.
+</p>
+
+<div id="outline-container-orga76c68a" class="outline-2">
+<h2 id="orga76c68a"><span class="section-number-2">1</span> Design</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The structure of documentation bodies can be thought of as a directed, labeled
+graph, where each node contains the markup content and some metadata. The labels
+describe the kind of connection.
+</p>
+
+
+<div id="org8ed45ae" class="figure">
+<p><img src="./test.png" alt="test.png" />
+</p>
+</div>
+
+<p>
+The process of translating from a body of documentation into this intermediate
+representation will be called analysis. For now, I will assume that a body of
+documentation is always contained in a directory.
+</p>
+
+<p>
+The process of transforming this intermediate representation for different
+markup formats and node linking constructs will be called conversion.
+</p>
+
+<p>
+The process of writing this intermediate representation back to a body of
+documentation in the real world will be called output.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf1e0121" class="outline-2">
+<h2 id="orgf1e0121"><span class="section-number-2">2</span> Goals</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+I feel like this will be a moderately difficult project, but I think the
+rewards (if properly made) will be great. To mark the finish line for this
+project, I'll shoot for just converting a small body of HTML documentation to
+a Texinfo page by March 14th. I'll have to work ahead a little in my classes
+to get this done, but I think its definitely possible.
+</p>
+
+<p>
+I may or may not make some other posts during development. Here's the
+repository for the project: <a href="https://github.com/Tass0sm/graphdoc">https://github.com/Tass0sm/graphdoc</a>
+</p>
+
+<p>
+Originally, I was generating this website
+with <a href="https://dthompson.us/projects/haunt.html">Haunt</a>, and then I
+switched to Hugo. Now I'm using Saait. I'm also writing the content
+in <a href="https://orgmode.org/">Org Mode</a>.
+</p>
+</div>
+</div>
+]]></description>
+</item>
+</channel>
+</rss>
