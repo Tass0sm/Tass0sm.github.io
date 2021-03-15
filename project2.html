@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Language" content="en" />
+	<meta name="viewport" content="width=device-width" />
+	<meta name="keywords" content="project, documentation, JACK, PipeWire, Wayland" />
+	<meta name="description" content="An Audio Clipping Tool" />
+	<meta name="author" content="tassos" />
+	<meta name="generator" content="saait (https://git.codemadness.org/saait/file/README.html)" />
+	<title>Project 2: Audio Clipper - &quot;Tassos&#39; Blog&quot;</title>
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="print.css" type="text/css" media="print" />
+	<link rel="alternate" href="atom.xml" type="application/atom+xml" title="&quot;Tassos&#39; Blog&quot; Atom Feed" />
+	<link rel="alternate" href="atom_content.xml" type="application/atom+xml" title="&quot;Tassos&#39; Blog&quot; Atom Feed with content" />
+	<link rel="icon" href="/favicon.png" type="image/png" />
+</head>
+<body>
+	<nav id="menuwrap">
+		<table id="menu" width="100%" border="0">
+		<tr>
+			<td id="links" align="left">
+				<a href="index.html">Blog</a> |
+				<a href="/git/" title="Git repository with some of my projects">Git</a> |
+				<a href="/releases/">Releases</a> |
+				<a href="gopher://codemadness.org">Gopherhole</a>
+			</td>
+			<td id="links-contact" align="right">
+				<span class="hidden"> | </span>
+				<a href="atom.xml">Atom feed</a> |
+				<a href="pgp.asc">PGP</a> |
+				<a href="mailto:tassos.manganaris@gmail.com" title="Mail me">Mail</a>
+			</td>
+		</tr>
+		</table>
+	</nav>
+	<hr class="hidden" />
+	<main id="mainwrap">
+		<div id="main">
+			<article>
+<header>
+	<h1><a href="">Project 2: Audio Clipper</a></h1>
+	<p><strong>Last modification on </strong> <time datetime="2021-03-15">2021-03-15</time></p>
+</header>
+
+<p>
+The intent of the last project was a tool to help develop other tools. This
+project is for showing my friends that I can develop something useful by
+developing something which answers a need we have all collectively
+identified.
+</p>
+
+<p>
+My friends and I call fairly regularly, and to enhance the calls we've looked
+into programs for routing audio between processes. Originally, this was just for
+playing and applying filters to audio coming into the call. 
+</p>
+
+<p>
+From what I saw, <a href="https://jackaudio.org/">JACK</a> was the best option for all three major operating
+systems. Furthermore, programs using the JACK API also work with PipeWire, which
+is a very attractive new program aiming to replace PulseAudio and JACK. However,
+Jack was fairly difficult to setup on Windows and also not ideal on
+Linux. Eventually, my friends settled for different, less capable programs and I
+stopped working on improving the JACK experience.
+</p>
+
+<p>
+Recently, we've been thinking that it would also be nice to record the audio
+(and possibly video) from the past 30-120 seconds of a call. This need could be
+generally and elegantly handled by one program using the JACK API that simply
+buffers the last N seconds of audio coming in. Then, the buffer can be encoded
+and written out on demand.
+</p>
+
+<p>
+I think this is a good opportunity to try making a cross platform application
+with a graphical user interface. I'm thinking I'll probably use C or C++, but I
+might also use something like Common Lisp, Rust, or Go. I kind of want to just
+stick with C though.
+</p>
+
+<p>
+I'll also get a chance to tinker with my environment to properly set up audio
+for my desktop. I have a bad habit of tinkering with my desktop too much,
+postponing real work. I'll also usually be briefly tinkering with fun stuff that
+doesn't really matter, and I'll become complacent with the more complicated
+stuff. For instance, I had been using <code>bspwm</code> for a year and a few months in
+December and I had a pretty nice environment. All of a sudden I wanted to bring
+my terminal and Emacs closer together, so I decided to try using Emacs as my
+window manager directly. Now I've been using <code>exwm</code> for a few months and I still
+haven't configured window placement to be even somewhat sane. If I can at least
+finish the audio stack, maybe I can finally choose a single window management
+scheme and stick to it for at least a few years.
+</p>
+
+<p>
+For the final product, I'll at least have a program which can take the last 30
+seconds of audio played by some program and write it to a file. From there I
+might add a GUI and other features. I am optimistic for this one.
+</p>
+
+			</article>
+		</div>
+	</main>
+</body>
+</html>

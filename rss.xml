@@ -7,6 +7,22 @@
 	<description>blog for 12 projects in 12 months.</description>
 	<link>https://www.tass0sm.github.io</link>
 <item>
+	<title>Project 2: Audio Clipper</title>
+	<link>https://www.tass0sm.github.io/project2.html</link>
+	<guid>https://www.tass0sm.github.io/project2.html</guid>
+	<dc:date>2021-03-15T00:00:00Z</dc:date>
+	<author>tassos</author>
+	<description>An Audio Clipping Tool</description>
+</item>
+<item>
+	<title>Project 1 Review</title>
+	<link>https://www.tass0sm.github.io/project1-review.html</link>
+	<guid>https://www.tass0sm.github.io/project1-review.html</guid>
+	<dc:date>2021-03-14T00:00:00Z</dc:date>
+	<author>tassos</author>
+	<description>Review of the Documentation Converter Project </description>
+</item>
+<item>
 	<title>Project 1: Documentation Converter</title>
 	<link>https://www.tass0sm.github.io/project1.html</link>
 	<guid>https://www.tass0sm.github.io/project1.html</guid>

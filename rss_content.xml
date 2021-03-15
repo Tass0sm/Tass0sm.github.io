@@ -7,6 +7,176 @@
 	<description>blog for 12 projects in 12 months.</description>
 	<link>https://www.tass0sm.github.io</link>
 <item>
+	<title>Project 2: Audio Clipper</title>
+	<link>https://www.tass0sm.github.io/project2.html</link>
+	<guid>https://www.tass0sm.github.io/project2.html</guid>
+	<dc:date>2021-03-15T00:00:00Z</dc:date>
+	<author>tassos</author>
+	<description><![CDATA[<h1>Project 2: Audio Clipper</h1>
+        <p><strong>Last modification on </strong> <time>2021-03-15</time></p>
+        <p>
+The intent of the last project was a tool to help develop other tools. This
+project is for showing my friends that I can develop something useful by
+developing something which answers a need we have all collectively
+identified.
+</p>
+
+<p>
+My friends and I call fairly regularly, and to enhance the calls we've looked
+into programs for routing audio between processes. Originally, this was just for
+playing and applying filters to audio coming into the call. 
+</p>
+
+<p>
+From what I saw, <a href="https://jackaudio.org/">JACK</a> was the best option for all three major operating
+systems. Furthermore, programs using the JACK API also work with PipeWire, which
+is a very attractive new program aiming to replace PulseAudio and JACK. However,
+Jack was fairly difficult to setup on Windows and also not ideal on
+Linux. Eventually, my friends settled for different, less capable programs and I
+stopped working on improving the JACK experience.
+</p>
+
+<p>
+Recently, we've been thinking that it would also be nice to record the audio
+(and possibly video) from the past 30-120 seconds of a call. This need could be
+generally and elegantly handled by one program using the JACK API that simply
+buffers the last N seconds of audio coming in. Then, the buffer can be encoded
+and written out on demand.
+</p>
+
+<p>
+I think this is a good opportunity to try making a cross platform application
+with a graphical user interface. I'm thinking I'll probably use C or C++, but I
+might also use something like Common Lisp, Rust, or Go. I kind of want to just
+stick with C though.
+</p>
+
+<p>
+I'll also get a chance to tinker with my environment to properly set up audio
+for my desktop. I have a bad habit of tinkering with my desktop too much,
+postponing real work. I'll also usually be briefly tinkering with fun stuff that
+doesn't really matter, and I'll become complacent with the more complicated
+stuff. For instance, I had been using <code>bspwm</code> for a year and a few months in
+December and I had a pretty nice environment. All of a sudden I wanted to bring
+my terminal and Emacs closer together, so I decided to try using Emacs as my
+window manager directly. Now I've been using <code>exwm</code> for a few months and I still
+haven't configured window placement to be even somewhat sane. If I can at least
+finish the audio stack, maybe I can finally choose a single window management
+scheme and stick to it for at least a few years.
+</p>
+
+<p>
+For the final product, I'll at least have a program which can take the last 30
+seconds of audio played by some program and write it to a file. From there I
+might add a GUI and other features. I am optimistic for this one.
+</p>
+]]></description>
+</item>
+<item>
+	<title>Project 1 Review</title>
+	<link>https://www.tass0sm.github.io/project1-review.html</link>
+	<guid>https://www.tass0sm.github.io/project1-review.html</guid>
+	<dc:date>2021-03-14T00:00:00Z</dc:date>
+	<author>tassos</author>
+	<description><![CDATA[<h1>Project 1 Review</h1>
+        <p><strong>Last modification on </strong> <time>2021-03-15</time></p>
+        <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org766e3d5">1. The Good</a></li>
+<li><a href="#org74ae0f1">2. The Bad</a></li>
+<li><a href="#orgceaf479">3. Looking Forward</a></li>
+</ul>
+</div>
+</div>
+<p>
+28 days have passed since the first blog post so I can now move on to a
+different project, but, before I do, I should look at how this past project as
+gone. Unfortunately, I can't say it was a complete success.
+</p>
+
+<p>
+I would say the project is 15% of the way to being ready to show off, so I'm
+marking it as version <code>v0.15</code> in git.
+</p>
+
+<div id="outline-container-org766e3d5" class="outline-2">
+<h2 id="org766e3d5"><span class="section-number-2">1</span> The Good</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Fortunately my program does successfully read the contents of the Common Lisp
+HyperSpec, form a graph which preserves most of the original connections, and
+write that graph out as a Texinfo document (albeit an imperfect one).
+</p>
+
+<p>
+In future work I would focus most on that last component. This project would be
+significantly more useful if all of the information in that graph could make its
+way to the final product. Once I initially finished that component, I found some
+of the better lessons from this project, actually.
+</p>
+
+<p>
+When I was traversing the whole graph and converting each node to an
+intermediate representation with Pandoc, I started running into memory
+consumption issues that I later found were related to how the graph structure
+was handled internally. I found I was parsing and manipulating the same content
+multiple times in multiple places in memory, and I ended up clumsily avoiding
+this by only including identifiers for each document section in the graph and
+keeping a separate data structure for mapping these identifiers to the actual
+content. Along the way, I found <a href="https://web.engr.oregonstate.edu/~erwig/papers/InductiveGraphs_JFP01.pdf">this paper</a> by Martin Erwig about Functional
+Graph algorithms and that helped elucidate how differently graphs are handled in
+functional languages.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org74ae0f1" class="outline-2">
+<h2 id="org74ae0f1"><span class="section-number-2">2</span> The Bad</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+I was hoping I could learn some more interesting Haskell design patterns during
+the project but I ended up neglecting that for the majority of the month. I did
+learn a bit more about Lenses, Monoids, and Functors, and how those last two
+relate to Applicatives some how. But that isn't much farther from where I was at
+the beginning of this month.
+</p>
+
+<p>
+Although I mostly started from scratch on this project, I should admit that I
+have been working on this project for much longer than 1 month. I originally had
+the idea in the summer and that morphed several times up until I learned about
+the existence of Pandoc. From there I decided to choose Haskell for realizing
+the rest of the project. Previous implementations relied on Trees instead of
+Graphs but those didn't really work out. This was the first serious attempt
+using graphs.
+</p>
+
+<p>
+Even with that head start, though, I didn't finish. That's pretty
+disappointing. I'm trying to build some pride here by putting some new, useful
+tools under my belt from which other people can benefit, but it looks like
+projects this size will require either a little more time or a more consistent
+work schedule. I'm thinking its the work schedule.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgceaf479" class="outline-2">
+<h2 id="orgceaf479"><span class="section-number-2">3</span> Looking Forward</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+I'll be working on this project for the next 11 months, but for now I'm looking
+forward to a new project. The next blog post will discuss that one. I'm also
+thinking I might write these blog posts a bit more frequently. That might be
+more enjoyable to read.
+</p>
+</div>
+</div>
+]]></description>
+</item>
+<item>
 	<title>Project 1: Documentation Converter</title>
 	<link>https://www.tass0sm.github.io/project1.html</link>
 	<guid>https://www.tass0sm.github.io/project1.html</guid>

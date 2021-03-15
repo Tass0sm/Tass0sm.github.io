@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Language" content="en" />
+	<meta name="viewport" content="width=device-width" />
+	<meta name="keywords" content="project, documentation, pandoc, graphdoc" />
+	<meta name="description" content="Review of the Documentation Converter Project " />
+	<meta name="author" content="tassos" />
+	<meta name="generator" content="saait (https://git.codemadness.org/saait/file/README.html)" />
+	<title>Project 1 Review - &quot;Tassos&#39; Blog&quot;</title>
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="print.css" type="text/css" media="print" />
+	<link rel="alternate" href="atom.xml" type="application/atom+xml" title="&quot;Tassos&#39; Blog&quot; Atom Feed" />
+	<link rel="alternate" href="atom_content.xml" type="application/atom+xml" title="&quot;Tassos&#39; Blog&quot; Atom Feed with content" />
+	<link rel="icon" href="/favicon.png" type="image/png" />
+</head>
+<body>
+	<nav id="menuwrap">
+		<table id="menu" width="100%" border="0">
+		<tr>
+			<td id="links" align="left">
+				<a href="index.html">Blog</a> |
+				<a href="/git/" title="Git repository with some of my projects">Git</a> |
+				<a href="/releases/">Releases</a> |
+				<a href="gopher://codemadness.org">Gopherhole</a>
+			</td>
+			<td id="links-contact" align="right">
+				<span class="hidden"> | </span>
+				<a href="atom.xml">Atom feed</a> |
+				<a href="pgp.asc">PGP</a> |
+				<a href="mailto:tassos.manganaris@gmail.com" title="Mail me">Mail</a>
+			</td>
+		</tr>
+		</table>
+	</nav>
+	<hr class="hidden" />
+	<main id="mainwrap">
+		<div id="main">
+			<article>
+<header>
+	<h1><a href="">Project 1 Review</a></h1>
+	<p><strong>Last modification on </strong> <time datetime="2021-03-15">2021-03-15</time></p>
+</header>
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org766e3d5">1. The Good</a></li>
+<li><a href="#org74ae0f1">2. The Bad</a></li>
+<li><a href="#orgceaf479">3. Looking Forward</a></li>
+</ul>
+</div>
+</div>
+<p>
+28 days have passed since the first blog post so I can now move on to a
+different project, but, before I do, I should look at how this past project as
+gone. Unfortunately, I can't say it was a complete success.
+</p>
+
+<p>
+I would say the project is 15% of the way to being ready to show off, so I'm
+marking it as version <code>v0.15</code> in git.
+</p>
+
+<div id="outline-container-org766e3d5" class="outline-2">
+<h2 id="org766e3d5"><span class="section-number-2">1</span> The Good</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Fortunately my program does successfully read the contents of the Common Lisp
+HyperSpec, form a graph which preserves most of the original connections, and
+write that graph out as a Texinfo document (albeit an imperfect one).
+</p>
+
+<p>
+In future work I would focus most on that last component. This project would be
+significantly more useful if all of the information in that graph could make its
+way to the final product. Once I initially finished that component, I found some
+of the better lessons from this project, actually.
+</p>
+
+<p>
+When I was traversing the whole graph and converting each node to an
+intermediate representation with Pandoc, I started running into memory
+consumption issues that I later found were related to how the graph structure
+was handled internally. I found I was parsing and manipulating the same content
+multiple times in multiple places in memory, and I ended up clumsily avoiding
+this by only including identifiers for each document section in the graph and
+keeping a separate data structure for mapping these identifiers to the actual
+content. Along the way, I found <a href="https://web.engr.oregonstate.edu/~erwig/papers/InductiveGraphs_JFP01.pdf">this paper</a> by Martin Erwig about Functional
+Graph algorithms and that helped elucidate how differently graphs are handled in
+functional languages.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org74ae0f1" class="outline-2">
+<h2 id="org74ae0f1"><span class="section-number-2">2</span> The Bad</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+I was hoping I could learn some more interesting Haskell design patterns during
+the project but I ended up neglecting that for the majority of the month. I did
+learn a bit more about Lenses, Monoids, and Functors, and how those last two
+relate to Applicatives some how. But that isn't much farther from where I was at
+the beginning of this month.
+</p>
+
+<p>
+Although I mostly started from scratch on this project, I should admit that I
+have been working on this project for much longer than 1 month. I originally had
+the idea in the summer and that morphed several times up until I learned about
+the existence of Pandoc. From there I decided to choose Haskell for realizing
+the rest of the project. Previous implementations relied on Trees instead of
+Graphs but those didn't really work out. This was the first serious attempt
+using graphs.
+</p>
+
+<p>
+Even with that head start, though, I didn't finish. That's pretty
+disappointing. I'm trying to build some pride here by putting some new, useful
+tools under my belt from which other people can benefit, but it looks like
+projects this size will require either a little more time or a more consistent
+work schedule. I'm thinking its the work schedule.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgceaf479" class="outline-2">
+<h2 id="orgceaf479"><span class="section-number-2">3</span> Looking Forward</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+I'll be working on this project for the next 11 months, but for now I'm looking
+forward to a new project. The next blog post will discuss that one. I'm also
+thinking I might write these blog posts a bit more frequently. That might be
+more enjoyable to read.
+</p>
+</div>
+</div>
+
+			</article>
+		</div>
+	</main>
+</body>
+</html>
