@@ -1,0 +1,27 @@
+(post
+ :title "Defining a new Guix Package"
+ :date (make-date* 2021 5 24)
+ :tags '("Guix" "packaging")
+ :recent "t"
+ :status "Completed"
+ :purpose "Replacing pip, gem, raco, quicklisp, cargo, etc. with guix."
+
+ (h2 [Summary])
+
+ (p [I think functional package management is a good idea. Unfortunately, it is
+somewhat hampered by a tiny community and poor integration into existing
+systems. My first experience was becoming enamored by the selling points of
+Nix/NixOS and then becoming frustrated when things didn't work.])
+
+ (p [Now, I am using the Guix package manager on Arch Linux. I think it works
+better and is more enjoyable to use. This is a project by itself, but I just
+want to focus on packaging something new for guix, so that one can use it to
+replace domain-specific package managers like pip, gem, raco, quicklisp, etc. So
+far I've just packaged a python module and two ruby gems.])
+
+ (h2 [Lessons Learned])
+
+ (ul
+  (li [Some of Guile Scheme])
+  (li [Basic usage of functional package managers])
+  (li [Packaging for GNU Guix])))

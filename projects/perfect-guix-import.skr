@@ -1,0 +1,15 @@
+(post
+ :title "Automatic, Perfect Guix Import"
+ :date (make-date* 2021 6 12)
+ :tags '("guix")
+ :recent "f"
+ :status "Conceived"
+ :purpose "Replace every package manager with GNU Guix."
+
+ (h2 [Summary])
+
+ (p [I'd love to replace every domain-specific package manager with GNU Guix. Is
+it possible to automatically take any package from one of these domain-specific
+package registries and convert it to a Guix package? Then one could have a Guix
+channel that lazily mirrors another repository like PyPi or Rubygems. That would
+be fantastic.]))

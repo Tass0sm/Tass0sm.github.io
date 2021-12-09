@@ -1,0 +1,19 @@
+(post
+ :title "Retroactive Recorder"
+ :date (make-date* 2021 4 14)
+ :tags '("hello")
+ :recent "t"
+ :status "Completed"
+ :purpose "Make something my friends could use."
+
+ (h2 [Summary])
+
+ (p [A tool that buffers the last n seconds of audio and writes them to a disk
+on command in raw PCM form. Made very minimally. The only dependency is
+JACK.])
+
+ (h2 [Lessons Learned])
+
+ (ul
+  (li [Features of the ogg container format.])
+  (li [Features of the FLAC encoding format.])))

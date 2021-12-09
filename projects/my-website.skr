@@ -1,0 +1,20 @@
+(post
+ :title "This Website"
+ :date (make-date* 2021 5 20)
+ :tags '("website" "blog")
+ :recent "t"
+ :status "In Progress"
+ :purpose "A website for keeping me accountable and summarizing my work."
+
+ (h2 [Summary])
+
+ (p [I used to have a blog for documenting projects I planned to complete in
+ 2021. The latest project was redesigning this website. Now I think it is better
+ looking and more informative. I am using the Haunt static site generator, which
+ describes the website with a purely functional scheme program. I completed all
+ the styling using plain css.])
+
+ (h2 [Lessons Learned])
+
+ (ul
+  (li [How to use the Haunt static site generator.])))

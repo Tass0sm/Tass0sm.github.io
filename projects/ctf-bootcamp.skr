@@ -1,0 +1,23 @@
+(post
+ :title "OSU Cyberclub Bootcamp"
+ :date (make-date* 2021 9 26)
+ :tags '("Cybersecurity")
+ :recent "t"
+ :status "In Progress"
+ :purpose "Learning the basics of cybersecurity."
+
+ (h2 [Summary])
+
+ (p [I recently joined the OSU Cybersecurity club. It is very well organized and
+ provides some great resources for members. One of these is a set of capture the
+ flag exercises covering reverse engineering, binary exploitation, web
+ exploits, and cryptography. They're pretty fun. All the members of the club are
+ ranked on a leaderboard, so it feels like playing a game. Right now I'm ranked
+ at number 11, but I'm shooting for the top 5. Maybe I'll be able to attach
+ results to this page at some point.])
+
+ (h2 [Lessons Learned])
+
+ (ul
+  (li [Using Ghidra for reverse engineering binary executables.])
+  (li [Block cipher exploits and number theory for cryptography.])))

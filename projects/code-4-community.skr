@@ -1,0 +1,22 @@
+(post
+ :title "Code4Community Club"
+ :date (make-date* 2021 10 16)
+ :tags '("Code4Community" "Game Development")
+ :recent "t"
+ :status "In Progress"
+ :purpose "Working with a group to make an instructional program."
+
+ (h2 [Summary])
+
+ (p [I joined the OSU Code4Community club at the beginning of this semester. I
+ am part of a team working on a platforming game meant for teaching middle
+ schoolers basic programming skills. The president of the club also pulled me
+ aside recently and asked me to help lead the group. I'm excited to help out,
+ and I might even try to officially join the club's leadership. I haven't had
+ this much fun working on a project in a while.])
+
+ (h2 [Lessons Learned])
+
+ (ul
+  (li [The Entity-Component-System design pattern for games.])
+  (li [The Phaser 3 game engine.])))

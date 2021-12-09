@@ -1,0 +1,25 @@
+(post
+ :title "Competing in BuckeyeCTF"
+ :date (make-date* 2021 10 22)
+ :tags '("Cybersecurity" "CTF")
+ :recent "t"
+ :status "Completed"
+ :purpose "Compete in a real CTF, meet new people, and have fun."
+
+ (h2 [Summary])
+
+ (p [I competed in the 48 hour Buckeye CTF over the 2021-10-22 weekend and came
+ in first place in the OSU division. This was my first CTF competition. I was on
+ a team with two other members of the cybersecurity club. I mostly worked on the
+ challenges in the reverse engineering category. Out of all participants, I
+ solved ,(anchor "Battelle's headless_horseman challenge"
+ "https://www.battelle.org/cyber-challenge/headless-horseman") first, and I
+ enjoyed that challenge the most. I think I will compete in more CTFs.])
+
+ (h2 [Lessons Learned])
+
+ (ul
+  (li [More experience with reverse engineering in Ghidra])
+  (li [Using GDB for reverse engineering])
+  (li [Using the Emacs Grand Unified Debugger interface])
+  (li [Debugging programs running inside of QEMU])))

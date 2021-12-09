@@ -1,0 +1,22 @@
+(post
+ :title "Raycasting on Proteus"
+ :date (make-date* 2020 7 1)
+ :tags '("hello")
+ :recent "t"
+ :status "Completed"
+ :purpose "Have some fun with an early graphics technique."
+
+ (h2 [Summary])
+
+ (p [After COVID-19 ended my freshman spring semester, I ended up holding on to
+the OSU Proteus for the entire summer. I had a project in the fall semester for
+making a small game for the Proteus. I made a bad game and wanted to try again
+with a more ambitious idea. I ended up making a simple First-Person 3D game
+using Raycasting. I also showed it off in a ,(anchor "YouTube video"
+                                                     "https://youtu.be/fJsS6eZKzfo").])
+
+ (h2 [Lessons Learned])
+
+ (ul
+  (li [A little more C++])
+  (li [Raycasting])))
