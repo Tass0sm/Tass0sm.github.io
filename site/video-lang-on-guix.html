@@ -1,0 +1,89 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><title>Video-Lang on Guix</title><link rel="stylesheet" href="/css/style.css" /></head><body><header><nav><a href="index.html">Home</a><a href="complete-projects.html">Projects</a><a href="hypothetical-projects.html">Ideas</a></nav></header><div class="row"><div class="col"><h1>Video-Lang on Guix</h1><ul><li>Completed - June 05, 2021</li><li>Purpose: Edit video conveniently and without bloat</li></ul><div class="post"><h2>Summary</h2><p>Video editing translates well to functional programming. Common video elements
+or effects can be thought of as functions combining videos, images, and other
+data to produce new components in the timeline. The Racket video-lang has this
+design.</p><p>There isn't a lot of support for Racket on Guix, but it looks like the normal
+Racket package installation process still works reliably. The only extra step
+was redefining the Racket package so that the ffmpeg libraries from guix were
+accessible via the ffi. The package definition is shown below.</p><pre><code class="language-scheme">(package
+   (inherit racket)
+   (name &quot;racket-with-ffmpeg&quot;)
+   (inputs
+    `((&quot;ffmpeg&quot; ,ffmpeg)
+      ,@(package-inputs racket)))
+   (arguments
+    `(#:configure-flags
+      `(,(string-append &quot;CPPFLAGS=-DGUIX_RKTIO_PATCH_BIN_SH=&quot;
+                        (assoc-ref %build-inputs &quot;sh&quot;)
+                        &quot;/bin/sh&quot;)
+        &quot;--enable-libz&quot;
+        &quot;--enable-liblz4&quot;)
+      #:modules
+      ((guix build gnu-build-system)
+       (guix build utils)
+       (srfi srfi-1))
+      #:phases
+      (modify-phases %standard-phases
+        (add-before 'configure 'pre-configure-minimal
+          (lambda* (#:key inputs #:allow-other-keys)
+            (chdir &quot;src&quot;)
+            #t))
+        (add-after 'build 'patch-config.rktd-lib-search-dirs
+          (lambda* (#:key inputs outputs #:allow-other-keys)
+            ;; We do this between the `build` and `install` phases
+            ;; so that we have racket to read and write the hash table,
+            ;; but it comes before `raco setup`, when foreign libraries
+            ;; are needed to build the documentation.
+            (define out (assoc-ref outputs &quot;out&quot;))
+            (apply invoke
+                   &quot;./cs/c/racketcs&quot;
+                   &quot;-e&quot;
+                   ,(format #f
+                            &quot;~s&quot;
+                            '(let* ((args
+                                     (vector-&gt;list
+                                      (current-command-line-arguments)))
+                                    (file (car args))
+                                    (extra-lib-search-dirs (cdr args)))
+                               (write-to-file
+                                (hash-update
+                                 (file-&gt;value file)
+                                 'lib-search-dirs
+                                 (lambda (dirs)
+                                   (append dirs extra-lib-search-dirs))
+                                 null)
+                                #:exists 'truncate/replace
+                                file)))
+                   &quot;--&quot;
+                   &quot;../etc/config.rktd&quot;
+                   (filter-map (lambda (lib)
+                                 (cond
+                                  ((assoc-ref inputs lib)
+                                   =&gt; (lambda (pth)
+                                        (string-append pth &quot;/lib&quot;)))
+                                  (else
+                                   #f)))
+                               '(&quot;cairo&quot;
+                                 &quot;fontconfig&quot;
+                                 &quot;glib&quot;
+                                 &quot;glu&quot;
+                                 &quot;gmp&quot;
+                                 &quot;gtk+&quot;
+                                 &quot;libjpeg&quot;
+                                 &quot;libpng&quot;
+                                 &quot;libx11&quot;
+                                 &quot;mesa&quot;
+                                 &quot;mpfr&quot;
+                                 &quot;openssl&quot;
+                                 &quot;pango&quot;
+                                 &quot;sqlite&quot;
+                                 &quot;unixodbc&quot;
+                                 &quot;libedit&quot;
+                                 &quot;ffmpeg&quot;)))
+            #t)))
+      ;; Tests are in packages like racket-test-core and
+      ;; main-distribution-test that aren't part of the main distribution.
+      #:tests? #f)))</code></pre><p>Now I can make videos with the complete power of a programming language like so:</p><pre><code class="language-racket">#lang video
+
+(playlist (color &quot;blue&quot; #:properties (hash &quot;length&quot; 10))
+          (fade-transition 5)
+          (clip &quot;a_video.mp4&quot;))</code></pre><h2>Lessons Learned</h2><ul><li>A little Racket Programming</li><li>Some more Guix Experience</li></ul></div></div></div><footer><p>Website Created with <a href="https://dthompson.us/projects/haunt.html">Haunt</a></p></footer></body></html>

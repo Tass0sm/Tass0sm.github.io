@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    margin: 1em;
+}
+
+nav {
+    text-align: right;
+    margin-right: 2em;
+}
+
+nav > a {
+    margin: 1em;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+}
+
+.center-row {
+    justify-content: center;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+#self-img {
+    align-self: center;
+    width: 50%;
+}
+
+footer {
+    width: 100%;
+}
+
+footer > p {
+    font-size: 11px;
+    text-align: center;
+}
