@@ -22,7 +22,16 @@
                        (alt "A picture of me."))))
           (div (@ (class col))
                (h2 "About Me")
-               (p "I am studing Computer Science at the Ohio State University."))))))
+               (p "I am studying Computer Science at the Ohio State
+University and an incoming Undergraduate Research Assistant at the College of
+Veterinary Medicine. I am interested in the following things:")
+               (ul
+                (li "GNU Emacs")
+                (li "GNU Guix")
+                (li "Wayland")
+                (li "Lisp")
+                (li "Haskell")
+                (li "Bioinformatics")))))))
 
 (define (filtered-and-sorted key value)
   "Returns a function which filters a list of posts to those where KEY in the
@@ -45,13 +54,15 @@ builder, so using that."
                          "hypothetical-projects.html"
                          ,(filtered-and-sorted 'recent "f")))))
 
-(site #:title "Tassos's Blog"
+(site #:title "TassosM"
       #:domain "tass0sm.github.io"
       #:default-metadata
       '((author . "Tassos Manganaris")
         (email  . "tassos.manganaris@gmail.com"))
-      #:posts-directory "projects"
-      #:readers (list skribe-reader commonmark-reader)
+      #:posts-directory "posts"
+      #:readers (list skribe-reader
+                      commonmark-reader
+                      html-reader)
       #:builders (list
                   about-page
                   (static-directory "css")

@@ -1,0 +1,19 @@
+#+title: Working with ProSPr: Protein Structure Prediction
+#+date: 2020-12-31 20:00
+#+tags: bar
+
+#+haunt_base_dir: /home/tassos/software/tassos-website
+#+haunt_images_dir: /images/
+#+haunt_metadata: ((recent . t) (status . "Completed") (purpose . "Learn more about protein structure prediction"))
+#+options: toc:nil num:nil
+
+** Summary
+After seeing news about Alphafold2, I wanted to try playing with it and maybe
+using it to predict the structure of a protein. Unfortunately, the Alphafold2
+code was not available at the time, so I chose to play with [[https://github.com/dellacortelab/prospr/][ProSPr]]. I eventually
+completed that structure prediction after some troubleshooting, and I
+contributed a small fix to the project along the way.
+
+** Lessons Learned
+- Making another open source contribution.
+- How to use docker.
