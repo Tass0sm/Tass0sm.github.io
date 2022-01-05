@@ -13,14 +13,5 @@ serve:
 view:
 	firefox site/index.html
 
-status:
-	$(GIT_COMMAND) status
-
-stage: build
-	$(GIT_COMMAND) add --all
-
-commit: stage
-	$(GIT_COMMAND) commit
-
-push:
-	$(GIT_COMMAND) push origin master
+deploy:
+	git subtree push --prefix site origin gh-pages
