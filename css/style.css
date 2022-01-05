@@ -6,16 +6,17 @@ body {
 }
 
 .main-column {
-    width: 90%;
+    width: 70%;
     box-sizing: border-box;
     margin: auto;
     padding: 2.5cm 2cm 1cm;
     background-color: #ffffff;
-    box-shadow: 1px 1px 6px #d8dee9;
+    box-shadow: 2px 2px 3px #d8dee9;
 }
 
 .row {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .center-row {
@@ -28,7 +29,7 @@ body {
     flex-direction: column;
     padding: 1em;
     max-width: 50%;
-    flex: 0 1 50%;
+    flex: 0 0 auto;
 }
 
 /* Header */
