@@ -1,0 +1,18 @@
+#+title: Development Environments in GNU Guix
+#+date: 2022-05-22 17:40
+#+tags: Guix
+
+#+haunt_base_dir: /home/tassos/software/tassos-website
+#+haunt_images_dir: /images/
+#+haunt_metadata: ((recent . t) (status . "Completed") (purpose . "Make development with GNU Guix easier."))
+#+options: toc:nil num:nil
+
+** Summary
+I tried returning to work on Graphdoc earlier this year, but I encountered problems in compiling the program. Building the package through Guix still worked. I thought that having access to the normal Haskell build tools with the security of Guix would be nice. The build systems in Guix already use language specific build tools or their underlying mechanisms, so this should be possible.
+
+I recently completed the first version of this program. It works for Haskell
+development. Although, it's not using Haskell packages provided by Guix yet, but it's working well enough for me right now. I might also make a video about this program. I think it's pretty nice.
+
+** Lessons Learned
+- Gained a better understanding of GNU Guix code, the store monad, and G-expressions.
+- Some Haskell build process concepts.

@@ -25,11 +25,13 @@
      (a (@ (href "https://github.com/Tass0sm"))
         "GitHub"))))
 
+(define %version "0.3.1")
+
 (define footer
   `(footer
     (p "This website was created using org-mode and haunt. The complete source can be found "
        (a (@ (href "https://github.com/Tass0sm/Tass0sm.github.io")) "here") ".")
-    (p "Version 0.3.0")))
+    (p "Version " ,%version)))
 
 (define (tassos-layout site title body)
   `((doctype "html")
