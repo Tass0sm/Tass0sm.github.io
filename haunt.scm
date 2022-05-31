@@ -22,12 +22,12 @@
                        (alt "A picture of me."))))
           (div (@ (class col))
                (h2 "About Me")
-               (p "I am studying Computer Science at the Ohio State
-University and an incoming Undergraduate Research Assistant at the College of
-Veterinary Medicine. I am interested in the following things:")
+               (p "I am studying Computer Science at the Ohio State University. I am an
+undergraduate research assistant working for Dr. Sanggu Kim. I am interested in
+the following things:")
                (ul
-                (li "GNU Emacs")
                 (li "GNU Guix")
+                (li "GNU Emacs")
                 (li "Wayland")
                 (li "Lisp")
                 (li "Haskell")
