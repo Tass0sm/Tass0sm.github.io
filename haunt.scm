@@ -22,7 +22,7 @@
                        (alt "A picture of me."))))
           (div (@ (class col))
                (h2 "About Me")
-               (p "I am studying Computer Science at the Ohio State University. I am an
+               (p "I study Computer Science at the Ohio State University. I am an
 undergraduate research assistant working for Dr. Sanggu Kim. I am interested in
 the following things:")
                (ul
@@ -31,7 +31,8 @@ the following things:")
                 (li "Wayland")
                 (li "Lisp")
                 (li "Haskell")
-                (li "Bioinformatics")))))))
+                (li "Bioinformatics")
+                (li "Drumming")))))))
 
 (define (filtered-and-sorted key value)
   "Returns a function which filters a list of posts to those where KEY in the

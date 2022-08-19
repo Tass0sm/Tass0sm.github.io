@@ -4,7 +4,7 @@
 
 #+haunt_base_dir: /home/tassos/software/tassos-website
 #+haunt_images_dir: /images/
-#+haunt_metadata: ((recent . t) (status . "Completed") (purpose . "Learn more about protein structure prediction"))
+#+haunt_metadata: ((recent . "t") (status . "Completed") (purpose . "Learn more about protein structure prediction"))
 #+options: toc:nil num:nil
 
 ** Summary
