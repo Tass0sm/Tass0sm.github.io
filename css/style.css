@@ -32,6 +32,10 @@ body {
     flex: 0 0 auto;
 }
 
+img {
+    max-width: 100%;
+}
+
 /* Header */
 header {
     position: fixed;
