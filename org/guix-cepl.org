@@ -1,0 +1,20 @@
+#+title: Using CEPL on GNU Guix
+#+date: 2022-09-12 11:00
+#+tags: Guix, Common Lisp, Games
+
+#+haunt_base_dir: /home/tassos/software/tassos-website
+#+haunt_images_dir: /images/
+#+haunt_metadata: ((recent . "t") (status . "Completed") (purpose . "Develop games with CEPL."))
+#+options: toc:nil num:nil
+
+** Summary
+I joined the OSU Game Creation Club this year. I started programming because I wanted to make games, and I want to try that again. I'll use it as an opportunity to learn about the graphics stack, common lisp, and the cool tools created by [[https://www.youtube.com/user/CBaggers][Chris Bagley]].
+
+I've recently [[https://github.com/Tass0sm/tassos-guix/commit/539090c45782906562901b8460fe8b8e3e36a432][packaged]] skitter, cepl.skitter, cl-soil, dirt, dendrite, classimp, cepl.sdl2, and a few other projects necessary for playing with the [[https://github.com/cbaggers/cepl.examples][cepl.examples]] repo. Now I can play with OpenGL in common lisp and reprogram games on-the-fly, all inside of a reproducible environment!
+
+#+DOWNLOADED: screenshot @ 2022-09-14 01:52:07
+[[file:2022-09-14_01-52-07_screenshot.png]]
+
+** Lessons Learned
+- Common Lisp basics.
+- CEPL basics.
