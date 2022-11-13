@@ -26,11 +26,12 @@
 undergraduate research assistant working for Dr. Sanggu Kim. I am interested in
 the following things:")
                (ul
-                (li "GNU Guix")
+                (li "Compilers and Languages")
+                (li "Quantum Computing")
+                (li "Neural Networks")
+                (li "Functional Package Managers")
                 (li "GNU Emacs")
                 (li "Wayland")
-                (li "Lisp")
-                (li "Haskell")
                 (li "Bioinformatics")
                 (li "Drumming")))))))
 
@@ -51,9 +52,10 @@ builder, so using that."
         #:collections `(("Recent Projects"
                          "complete-projects.html"
                          ,(filtered-and-sorted 'recent "t"))
-                        ("Hypothetical Projects"
-                         "hypothetical-projects.html"
-                         ,(filtered-and-sorted 'recent "f")))))
+                        ;; ("Hypothetical Projects"
+                        ;;  "hypothetical-projects.html"
+                        ;;  ,(filtered-and-sorted 'recent "f"))
+                        )))
 
 (site #:title "TassosM"
       #:domain "tass0sm.github.io"

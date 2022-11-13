@@ -20,8 +20,6 @@
         "Home")
      (a (@ (href "complete-projects.html"))
         "Projects")
-     (a (@ (href "hypothetical-projects.html"))
-        "Ideas")
      (a (@ (href "https://github.com/Tass0sm"))
         "GitHub"))))
 

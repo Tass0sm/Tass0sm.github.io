@@ -1,0 +1,12 @@
+(post
+ :title "Vulkan Renderer for Wayland"
+ :date (make-date* 2021 4 14)
+ :tags '("hello")
+ :recent "f"
+ :status "Conceived"
+ :purpose "Make a wayland compositor work well with an Nvidea GPU."
+
+ (h2 [Summary])
+
+ (p [I don't know how to write a modern graphics program. I also don't know why
+ Wayland is so unsupported on Nvidia. Maybe this could do something useful?]))

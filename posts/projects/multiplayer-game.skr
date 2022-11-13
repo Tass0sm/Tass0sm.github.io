@@ -1,0 +1,19 @@
+(post
+ :title "A Multiplayer Game"
+ :date (make-date* 2021 6 12)
+ :tags '("game" "lisp")
+ :recent "f"
+ :status "Conceived"
+ :purpose "Make an extensible multiplayer game for my friend group."
+
+ (h2 [Summary])
+
+ (p [My friend group wants to play a game together but it's usually not
+convenient or long-lasting. Having an extensible game of our own would be
+fun. I would like to make it in either GNU Guile or Common Lisp.])
+
+ (h2 [Lessons Learned])
+
+ (ul
+  (li [How to use Unix Sockets])
+  (li [How to use Slime and Geiser])))
