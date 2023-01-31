@@ -26,13 +26,13 @@
 undergraduate research assistant working for Dr. Sanggu Kim. I am interested in
 the following things:")
                (ul
+                (li "Machine Learning and Neural Networks")
+                (li "Computational Biology")
                 (li "Compilers and Languages")
                 (li "Quantum Computing")
-                (li "Neural Networks")
                 (li "Functional Package Managers")
                 (li "GNU Emacs")
                 (li "Wayland")
-                (li "Bioinformatics")
                 (li "Drumming")))))))
 
 (define (filtered-and-sorted key value)
