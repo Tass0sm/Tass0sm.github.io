@@ -26,6 +26,7 @@
 undergraduate research assistant working for Dr. Sanggu Kim. I am interested in
 the following things:")
                (ul
+                (li "Reinforcement Learning")
                 (li "Machine Learning and Neural Networks")
                 (li "Computational Biology")
                 (li "Compilers and Languages")
