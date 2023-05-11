@@ -26,6 +26,7 @@ jobs:
     steps:
       - name: Get Haunt
         run: |
+          sudo apt update && sudo apt install -y guile-3.0
           wget https://files.dthompson.us/haunt/haunt-0.2.6.tar.gz
           tar xf haunt-0.2.6.tar.gz
           cd haunt-0.2.6
