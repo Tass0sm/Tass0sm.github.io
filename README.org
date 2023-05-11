@@ -1,33 +1,4 @@
-* How Haunt Works
-** Posts
-   Files with markup
-** Readers
-   Translators : Markup -> SXML
-** Site Object
-   All the properties for a site
-   posts-directory: Where to get posts.
-   readers: Which translators are understood.
-   builders: ...
-** Builders
-   A procedure which takes a site and a list of posts.
-   Returns artifacts.
-** Artifacts
-   Artifact objects that represent files to eventually be written to output.
-   Serialized artifacts associated with some file name, contents, and a writer.
-** Writer
-   Some function which serializes some content. Usually that output is HTML or
-   XML.
+* TODOs
 
-* My Layout
-** Index
-** Projects
-** Ideas
-
-* Portfolio Builder
-** Home Page
-** Projects Page
-   List of Projects
-** Project Page
-
-
-* Ideas Page
+1. Wiki Builder
+2. Portfolio Builder
