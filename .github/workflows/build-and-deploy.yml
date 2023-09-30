@@ -24,15 +24,37 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Get Haunt
+      - name: Get guile and gperf
         run: |
-          sudo apt update && sudo apt install -y guile-3.0 guile-3.0-libs
+          apt update
+          apt install -y guile-3.0 guile-3.0-dev guile-3.0-libs gperf texinfo
+      - name: Get guile-commonmark
+        run: |
+          git clone https://github.com/OrangeShark/guile-commonmark.git
+          cd guile-commonmark
+          ./bootstrap
+          ./configure --prefix=/usr
+          make
+          make install
+          cd ..
+      - name: Get guile-reader
+        run: |
+          wget https://download.savannah.nongnu.org/releases/guile-reader/guile-reader-0.6.3.tar.gz
+          tar xf guile-reader-0.6.3.tar.gz
+          cd guile-reader-0.6.3
+          ./configure --prefix=/usr
+          make
+          make install
+          cd ..
+      - name: Get haunt
+        run: |
           wget https://files.dthompson.us/haunt/haunt-0.2.6.tar.gz
           tar xf haunt-0.2.6.tar.gz
           cd haunt-0.2.6
-          ./configure
+          ./configure --prefix=/usr
           make
           make install
+          cd ..
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
