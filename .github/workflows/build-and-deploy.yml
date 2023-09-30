@@ -26,8 +26,8 @@ jobs:
     steps:
       - name: Get guile and gperf
         run: |
-          apt update
-          apt install -y guile-3.0 guile-3.0-dev guile-3.0-libs gperf texinfo
+          sudo apt update
+          sudo apt install -y guile-3.0 guile-3.0-dev guile-3.0-libs gperf texinfo
       - name: Get guile-commonmark
         run: |
           git clone https://github.com/OrangeShark/guile-commonmark.git
@@ -35,7 +35,7 @@ jobs:
           ./bootstrap
           ./configure --prefix=/usr
           make
-          make install
+          sudo make install
           cd ..
       - name: Get guile-reader
         run: |
@@ -44,7 +44,7 @@ jobs:
           cd guile-reader-0.6.3
           ./configure --prefix=/usr
           make
-          make install
+          sudo make install
           cd ..
       - name: Get haunt
         run: |
@@ -53,7 +53,7 @@ jobs:
           cd haunt-0.2.6
           ./configure --prefix=/usr
           make
-          make install
+          sudo make install
           cd ..
       - name: Checkout
         uses: actions/checkout@v3
