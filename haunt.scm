@@ -4,11 +4,14 @@
              (haunt html)
              (haunt post)
              (haunt builder blog)
+             ;; (haunt builder wiki)
              (haunt builder assets)
              (haunt reader skribe)
              (haunt reader commonmark)
+             (haunt reader dir-tagging-reader)
              (haunt reader)
              (srfi srfi-1)
+             (ice-9 format)
              (theme))
 
 (define about-page
@@ -24,27 +27,32 @@
                (h2 "About Me")
                (p "I am a Ph.D. student studying Computer Science at Purdue University."))))))
 
-(define (filtered-and-sorted key value)
-  "Returns a function which filters a list of posts to those where KEY in the
-metadata equals VALUE, and then sorts them in reverse-chronological order."
-  (lambda (posts)
-    (let ((filtered (filter (lambda (post)
-                              (string=? (post-ref post key) value))
-                            posts)))
-      (posts/reverse-chronological filtered))))
-
 (define (projects)
   "Returns a builder which produces a projects overview page and project
 subpages, treating POSTS as a list of projects. Very similar to the blog
 builder, so using that."
-  (blog #:theme tassos-projects-theme
-        #:collections `(("Recent Projects"
-                         "complete-projects.html"
-                         ,(filtered-and-sorted 'recent "t"))
-                        ;; ("Hypothetical Projects"
-                        ;;  "hypothetical-projects.html"
-                        ;;  ,(filtered-and-sorted 'recent "f"))
-                        )))
+  (define projects-blog (blog #:theme tassos-projects-theme
+                              #:collections `(("Recent Projects"
+                                               "complete-projects.html"
+                                               ,posts/reverse-chronological))))
+
+  (lambda (site posts)
+    (projects-blog site (filter (lambda (post) (post-ref post 'projects)) posts))))
+
+(define (wiki)
+  "Wiki"
+  (define wiki-blog (blog #:theme tassos-wiki-theme
+			  #:collections `(("Wiki"
+                                           "wiki.html"
+                                           ,identity))))
+
+  (lambda (site posts)
+    (wiki-blog site (filter (lambda (post)
+                              (format #t "~a~%" (post-ref post 'date))
+                              (and (post-ref post 'wiki)
+                                   ;; (equal? (post-ref post 'good) "t")
+                                   )) posts))))
+
 
 (site #:title "TassosM"
       #:domain "tass0sm.github.io"
@@ -52,11 +60,12 @@ builder, so using that."
       '((author . "Tassos Manganaris")
         (email  . "tassos.manganaris@gmail.com"))
       #:posts-directory "posts"
-      #:readers (list skribe-reader
-                      commonmark-reader
-                      html-reader)
+      #:readers (list (make-dir-tagging-reader html-reader)
+                      (make-dir-tagging-reader skribe-reader)
+                      (make-dir-tagging-reader commonmark-reader))
       #:builders (list
                   about-page
                   (static-directory "css")
                   (static-directory "images")
-                  (projects)))
+                  (projects)
+                  (wiki)))

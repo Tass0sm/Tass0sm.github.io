@@ -21,7 +21,7 @@
   ;; augments the metadata with the directories in the filename.
   (lambda (filename)
     (let* ((dirs (list-middle (string-split filename file-name-separator-char)))
-           (dir-metadata (map (lambda (d) (cons d #t)) dirs)))
+           (dir-metadata (map (lambda (d) (cons (string->symbol d) #t)) dirs)))
       (let-values (((metadata sxml) (reader-proc filename)))
         (values (append dir-metadata metadata) sxml)))))
 

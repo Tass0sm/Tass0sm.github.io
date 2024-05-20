@@ -9,6 +9,7 @@
   #:use-module (utils)
   #:export (tassos-layout
             tassos-projects-theme
+            tassos-wiki-theme
             static-page))
 
 ;; general layout elements
@@ -20,6 +21,8 @@
         "Home")
      (a (@ (href "complete-projects.html"))
         "Projects")
+     (a (@ (href "wiki.html"))
+        "Wiki")
      (a (@ (href "https://github.com/Tass0sm"))
         "GitHub"))))
 
@@ -50,21 +53,27 @@
 
 ;; post layout elements
 
-(define (compact-metadata post)
+(define (compact-project-metadata post)
   `(ul
     (li ,(string-append
-          (post-ref post 'status)
+          (or (post-ref post 'status) "Null")
           " - "
           (date->string
            (post-date post) "~B ~d, ~Y")))
     (li ,(string-append
           "Purpose: "
-          (post-ref post 'purpose)))))
+          (or (post-ref post 'purpose) "Null")))))
 
-(define (post-layout post)
+(define (project-post-layout post)
   `(div
     (h1 ,(post-ref post 'title))
-    ,(compact-metadata post)
+    ,(compact-project-metadata post)
+    (div (@ (class "post"))
+         ,(post-sxml post))))
+
+(define (wiki-post-layout post)
+  `(div
+    (h1 ,(post-ref post 'title))
     (div (@ (class "post"))
          ,(post-sxml post))))
 
@@ -86,12 +95,21 @@
                        ,(post-ref post 'title)))))
            posts))))
 
+(define tassos-wiki-theme
+  (theme #:name "tassos"
+         #:layout
+         tassos-layout
+         #:post-template
+         wiki-post-layout
+         #:collection-template
+         collection-layout))
+
 (define tassos-projects-theme
   (theme #:name "tassos"
          #:layout
          tassos-layout
          #:post-template
-         post-layout
+         project-post-layout
          #:collection-template
          collection-layout))
 
