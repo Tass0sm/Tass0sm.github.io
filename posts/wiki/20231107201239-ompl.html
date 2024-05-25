@@ -1,0 +1,68 @@
+title: OMPL
+date: 2024-05-25 Sat 21:14
+---
+<div id="outline-container-org1c5515a" class="outline-2">
+<h2 id="org1c5515a">Building for use in a conda environment</h2>
+<div class="outline-text-2" id="text-org1c5515a">
+<p>
+I recommend building OMPL from source within a conda environment. This is almost
+necessary because no version of OMPL is packaged with python bindings. Also,
+acquiring a compatabile version of boost, python, and numpy at once is pretty
+difficult. The steps are as follows:
+</p>
+</div>
+
+<div id="outline-container-org32cb2c8" class="outline-3">
+<h3 id="org32cb2c8">Install latest source from github.</h3>
+<div class="outline-text-3" id="text-org32cb2c8">
+<div class="org-src-container">
+<pre class="src src-shell">git clone https://github.com/ompl/ompl
+cd ompl
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4893fd8" class="outline-3">
+<h3 id="org4893fd8">Create your conda environment.</h3>
+<div class="outline-text-3" id="text-org4893fd8">
+<div class="org-src-container">
+<pre class="src src-shell">conda create -n my_ompl_env python=3.8 numpy boost
+pip install pyplusplus
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf4d6b1b" class="outline-3">
+<h3 id="orgf4d6b1b">Configure</h3>
+<div class="outline-text-3" id="text-orgf4d6b1b">
+<div class="org-src-container">
+<pre class="src src-shell">conda activate my_ompl_env
+mkdir -p build/MyBuild
+cd build/MyBuild
+cmake ../.. \
+      -DPYTHON_EXEC=$(which python) \
+      -DBoost_ROOT=$CONDA_PREFIX \
+      -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX
+</pre>
+</div>
+
+<p>
+It might complain about not finding boost_python3.8, but setting Boost_DEBUG to
+"true" will show that it does indeed find boost_python.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org99523e6" class="outline-3">
+<h3 id="org99523e6">Build and install</h3>
+<div class="outline-text-3" id="text-org99523e6">
+<div class="org-src-container">
+<pre class="src src-shell">make -j 32 update_bindings
+sudo make -j 32 install
+</pre>
+</div>
+</div>
+</div>
+</div>
