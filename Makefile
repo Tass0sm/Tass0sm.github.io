@@ -6,10 +6,6 @@ all: build
 build:
 	haunt build
 
-serve:
-	haunt serve &
-	firefox "localhost:8080"
-
 view:
 	firefox site/index.html
 
